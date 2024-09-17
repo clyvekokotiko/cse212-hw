@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 public static class Arrays
 {
     /// <summary>
@@ -13,7 +15,17 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        // Create a new list that will be returned
+        var result = new double[length];
+
+        // Use for loop to find multiples
+        for (int i = 0; i < length; i++){
+            // add multiples to the new list
+            result[i] = number + (number * i);
+        }
+
+        return result; // replace this return statement with your own
+        // Perfomance for this is O(n)
     }
 
     /// <summary>
@@ -29,5 +41,14 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        
+        // Get length of data list
+        var n = data.Count;
+        // Get range from the data list and store it in the new list 
+        var dataRange = data.GetRange(n - amount , amount);
+        // Remove selected range form the original list and instert it at the beggining of the list
+        data.RemoveRange(n - amount , amount);
+        data.InsertRange(0, dataRange);
     }
 }
